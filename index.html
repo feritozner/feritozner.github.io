@@ -1,300 +1,298 @@
 <!DOCTYPE html>
-<html lang="tr">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Portfolio | [Adın Soyadın]</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <title>Ferit | Security Portfolio</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
     <style>
-        :root {
-            --bg: #080808;
-            --panel-bg: #111111;
-            --border: #1f1f1f;
-            --accent: #3b82f6;
-            --text-main: #ffffff;
-            --text-dim: #777;
-            --critical: #ef4444;
-            --high: #f97316;
-        }
-
-        * { box-sizing: border-box; margin: 0; padding: 0; }
-        
+        /* General Style */
         body {
-            background-color: var(--bg);
-            color: var(--text-main);
-            font-family: 'Inter', sans-serif;
-            min-height: 100vh;
-            display: grid;
-            grid-template-columns: 450px 1fr;
-            overflow-x: hidden;
+            background-color: #f4f4f4;
+            font-family: Arial, Helvetica, sans-serif;
+            color: #333;
+            padding: 10px;
+            margin: 0;
         }
 
-        .panel {
-            border-right: 1px solid var(--border);
-            padding: 50px 40px;
-            display: flex;
-            flex-direction: column;
-            overflow-y: auto;
-        }
-
-        .panel:last-child { border-right: none; }
-
-        h2 {
-            font-size: 0.7rem;
-            text-transform: uppercase;
-            letter-spacing: 3px;
-            color: var(--accent);
-            margin-bottom: 30px;
-            border-bottom: 1px solid var(--border);
-            padding-bottom: 10px;
-        }
-
-        .profile-container {
-            display: flex;
-            align-items: center;
-            gap: 25px;
-            margin-bottom: 40px;
-        }
-
-        .profile-img {
-            width: 120px;
-            height: 120px;
-            border-radius: 12px;
-            object-fit: cover;
-            border: 1px solid var(--border);
-        }
-
-        .identity h1 { font-size: 1.6rem; margin-bottom: 5px; letter-spacing: -0.5px; }
-        .identity p { color: var(--accent); font-size: 0.8rem; font-weight: 600; text-transform: uppercase; }
-        
-        .contact-group {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 20px;
-            margin-bottom: 40px;
-            padding-bottom: 30px;
-            border-bottom: 1px solid var(--border);
-        }
-
-        .label { display: block; font-size: 0.6rem; color: var(--text-dim); text-transform: uppercase; margin-bottom: 5px; }
-        .value { font-size: 0.9rem; font-weight: 500; word-break: break-all; }
-
-        .social-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 12px;
-        }
-
-        .social-card {
-            background: var(--panel-bg);
-            border: 1px solid var(--border);
+        .main-frame {
+            background-color: #fff;
+            max-width: 1200px;
+            margin: 10px auto;
+            border: 1px solid #999;
             padding: 15px;
-            border-radius: 10px;
-            display: flex;
-            align-items: center;
-            gap: 12px;
-            text-decoration: none;
-            color: #ccc;
-            transition: 0.3s;
         }
 
-        .social-card:hover { border-color: var(--accent); background: rgba(59, 130, 246, 0.05); }
+        /* 3-Column Grid with Responsiveness */
+        .grid-container {
+            display: grid;
+            grid-template-columns: 240px 1fr 280px;
+            gap: 15px;
+        }
 
-        .table-wrapper { 
+        @media (max-width: 1000px) {
+            .grid-container { grid-template-columns: 1fr; }
+        }
+
+        .box {
+            border: 1px solid #ccc;
+            margin-bottom: 15px;
+        }
+
+        h3 {
+            background-color: #555;
+            color: #fff;
+            padding: 5px 10px;
+            margin: 0;
+            font-size: 13px;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+        }
+
+        /* Left Column: Profile & Photo Frame */
+        .profile-card {
+            text-align: center;
+            padding-top: 20px;
+        }
+
+        .avatar-container {
+            width: 150px;
+            height: 150px;
+            margin: 0 auto 15px;
+            border: 4px solid #333; /* Fotoğraf çerçevesi */
+            padding: 5px;
+            background: #fff;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        }
+
+        .avatar { 
             width: 100%; 
-            overflow-x: hidden; 
-            margin-bottom: 25px; 
-        } 
-
-        table { 
-            width: 100%; 
-            border-collapse: collapse; 
-            min-width: auto; 
-            table-layout: fixed; 
-        } 
-        th { text-align: left; color: var(--text-dim); padding: 15px 12px; border-bottom: 1px solid var(--border); text-transform: uppercase; font-size: 0.65rem; }
-        td { padding: 18px 12px; border-bottom: 1px solid var(--border); font-size: 0.85rem; }
-        
-        .archive-link {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 12px;
-            background: #111;
-            border: 1px dashed #333;
-            color: var(--text-dim);
-            padding: 20px;
-            border-radius: 10px;
-            text-decoration: none;
-            font-size: 0.8rem;
-            margin-bottom: 50px;
+            height: 100%; 
+            object-fit: cover;
+            border: 1px solid #ccc;
         }
 
-        .cert-item {
-            background: var(--panel-bg);
-            border: 1px solid var(--border);
-            padding: 20px;
-            border-radius: 10px;
-            margin-bottom: 12px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            gap: 10px;
+        .name { margin: 10px 0 0; font-size: 18px; }
+        .title { font-size: 11px; color: #888; margin-bottom: 10px; text-transform: uppercase; }
+
+        .contact-info {
+            padding: 10px;
+            font-size: 11px;
+            border-top: 1px dashed #eee;
+            color: #555;
+            text-align: left;
+        }
+        .contact-info p { margin: 5px 0; display: flex; align-items: center; gap: 8px; }
+
+        .social-buttons { display: flex; flex-direction: column; padding: 10px; }
+        .social-btn {
+            text-decoration: none; color: #333; background: #fff; border: 1px solid #bbb;
+            padding: 7px; margin-bottom: 5px; font-size: 12px; display: flex; align-items: center; gap: 8px;
+            transition: 0.2s;
+        }
+        .social-btn:hover { background: #f0f0f0; border-color: #333; }
+
+        /* Middle Column: CVE Table */
+        .table-wrapper { padding: 10px; overflow-x: auto; }
+        table { width: 100%; font-size: 12px; border-collapse: collapse; text-align: left; }
+        table a { color: #0044cc; font-weight: bold; }
+
+        .sev-critical, .sev-high { color: #cc0000; font-weight: bold; }
+        .sev-medium { color: #cc7a00; font-weight: bold; }
+        .sev-low { color: #2d862d; font-weight: bold; }
+
+        /* GitHub Button - Flat & Centered */
+        .center-container { display: flex; justify-content: center; padding: 15px; }
+        .flat-github-btn {
+            text-decoration: none; color: #fff; background-color: #333;
+            padding: 10px 20px; font-size: 11px; font-weight: bold; border: 1px solid #000;
+        }
+        .flat-github-btn:hover { background-color: #555; }
+
+        /* Certifications */
+        .cert-list { padding: 10px; }
+        .cert-row {
+            display: flex; justify-content: space-between; align-items: center;
+            border-bottom: 1px dashed #ccc; padding: 8px 0;
+        }
+        .cert-row:last-child { border-bottom: none; }
+        .cert-info { font-size: 13px; }
+        .verify-btn {
+            text-decoration: none; background: #eee; color: #333; border: 1px solid #999;
+            padding: 3px 8px; font-size: 10px;
         }
 
-        .cert-info b { display: block; font-size: 1rem; }
-        .cert-info span { font-size: 0.75rem; color: var(--text-dim); }
-        .verify-btn { font-size: 0.7rem; color: var(--accent); border: 1px solid var(--accent); padding: 5px 12px; border-radius: 6px; text-decoration: none; font-weight: bold; white-space: nowrap; }
+        /* Right Column: Experience & Education */
+        .timeline, .edu-list { padding: 10px; }
+        .exp-item, .edu-item { border-left: 2px solid #555; padding-left: 10px; margin-bottom: 15px; }
+        .rank-tag { font-size: 10px; color: #777; font-style: italic; background: #f9f9f9; padding: 1px 4px; border: 1px solid #ddd; }
+        .exp-item strong, .edu-item strong { display: block; font-size: 14px; margin-top: 4px; }
+        .exp-item p, .edu-item p { margin: 2px 0; font-size: 12px; }
 
-    
-        @media (max-width: 992px) {
-            body {
-                grid-template-columns: 1fr; 
-                overflow-y: auto;
-            }
-
-            .panel {
-                width: 100%;
-                height: auto;
-                border-right: none;
-                border-bottom: 1px solid var(--border);
-                padding: 40px 20px;
-            }
-
-            .panel:last-child { border-bottom: none; }
-
-            .profile-container {
-                flex-direction: column;
-                text-align: center;
-            }
-
-            .contact-group {
-                grid-template-columns: 1fr;
-                gap: 15px;
-            }
-
-            .social-grid {
-                grid-template-columns: 1fr;
-            }
-
-            .hero-name h1 { font-size: 1.4rem; }
-            
-            .cert-item {
-                flex-direction: column;
-                align-items: flex-start;
-            }
-            
-            .verify-btn { width: 100%; text-align: center; margin-top: 10px; }
-        
-            th, td {
-                padding: 10px 5px; 
-                font-size: 0.7rem; 
-                word-break: break-word; 
-            }
-            
-            th:nth-child(1), td:nth-child(1) { width: 25%; } 
-            th:nth-child(2), td:nth-child(2) { width: 45%; } 
-            th:nth-child(3), td:nth-child(3) { width: 15%; } 
-            th:nth-child(4), td:nth-child(4) { width: 15%; } 
-        
-        }
+        footer { text-align: center; margin-top: 15px; color: #bbb; border-top: 1px solid #eee; padding: 10px; }
     </style>
 </head>
 <body>
 
-    <aside class="panel">
-        <h2>Identity</h2>
-        <div class="profile-container">
-            <img src="profile.jpg" alt="Agent" class="profile-img">
-            <div class="identity">
-                <h1>Ferit Özner</h1>
-                <p>Cyber Security Researcher</p>
-            </div>
-        </div>
+    <div class="main-frame">
+        <div class="grid-container">
+            
+            <aside class="left-col">
+                <div class="box profile-card">
+                    <div class="avatar-container">
+                        <img src="profile.jpg" alt="Ferit" class="avatar">
+                    </div>
+                    <h2 class="name">Ferit Özner</h2>
+                    <p class="title">Cyber Security Researcher</p>
+                    
+                    <div class="contact-info">
+                        <p><i class="fas fa-envelope"></i> feritozner@gmail.com</p>
+                        <p><i class="fas fa-location-dot"></i> Istanbul, Turkey</p>
+                    </div>
+                </div>
 
-        <div class="contact-group">
-            <div class="contact-item">
-                <span class="label">Primary Email</span>
-                <span class="value">feritozner@gmail.com</span>
-            </div>
-            <div class="contact-item">
-                <span class="label">Location</span>
-                <span class="value">İstanbul/Avrupa</span>
-            </div>
-        </div>
+                <div class="box">
+                    <h3>SOCIAL MEDIA</h3>
+                    <div class="social-buttons">
+                        <a href="https://github.com/feritozner" target="_blank" class="social-btn"><i class="fab fa-github"></i> GitHub</a>
+                        <a href="https://www.linkedin.com/in/ferit-ozner" target="_blank" class="social-btn"><i class="fab fa-linkedin"></i> LinkedIn</a>
+                        <a href="https://x.com/FeritOzner" target="_blank" class="social-btn"><i class="fa-brands fa-x-twitter"></i> Twitter</a>
+                        <a href="https://medium.com/@feritozner" target="_blank" class="social-btn"><i class="fab fa-medium"></i> Medium</a>
+                        <a href="https://www.instagram.com/feritozner" target="_blank" class="social-btn"><i class="fab fa-instagram"></i> Instagram</a>
+                    </div>
+                </div>
+            </aside>
 
-        <h2>Network Nodes</h2>
-        <div class="social-grid">
-            <a href="https://github.com/feritozner" class="social-card"><i class="fab fa-github"></i> <span>GitHub</span></a>
-            <a href="https://www.linkedin.com/in/ferit-ozner/" class="social-card"><i class="fab fa-linkedin-in"></i> <span>LinkedIn</span></a>
-            <a href="https://medium.com/@feritozner" class="social-card"><i class="fab fa-medium-m"></i> <span>Medium</span></a>
-            <a href="https://x.com/FeritOzner" class="social-card"><i class="fab fa-x-twitter"></i> <span>Twitter</span></a>
-            <a href="https://www.instagram.com/feritozner/" class="social-card"><i class="fab fa-instagram"></i> <span>Instagram</span></a>
-        </div>
-    </aside>
+            <section class="mid-col">
+                <div class="box">
+                    <h3>MY CVE RECORDS</h3>
+                    <div class="table-wrapper">
+                        <table border="1" cellspacing="0" cellpadding="5">
+                            <thead>
+                                <tr bgcolor="#e0e0e0">
+                                    <th>ID</th>
+                                    <th>Vulnerability</th>
+                                    <th>CVSS</th>
+                                    <th>Severity</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><a href="https://www.cve.org/CVERecord?id=CVE-2025-10161" target="_blank">CVE-2025-10161</a></td>
+                                    <td>Authentication Bypass</td>
+                                    <td>7.3</td>
+                                    <td class="sev-high">HIGH</td>
+                                </tr>
+                                <tr>
+                                    <td><a href="https://www.cve.org/CVERecord?id=CVE-2025-14343" target="_blank">CVE-2025-14343</a></td>
+                                    <td>Reflected XSS</td>
+                                    <td>7.6</td>
+                                    <td class="sev-medium">HIGH</td>
+                                </tr>
+                                <tr>
+                                    <td><a href="https://www.cve.org/CVERecord?id=CVE-2026-2347" target="_blank">CVE-2026-2347</a></td>
+                                    <td>Account Takeover</td>
+                                    <td>Pending</td>
+                                    <td class="sev-critical">Pending</td>
+                                </tr>
+								<tr>
+                                    <td><a href="https://www.cve.org/CVERecord?id=CVE-2026-3953" target="_blank">CVE-2026-3953</a></td>
+                                    <td>Reflected XSS</td>
+                                    <td>Pending</td>
+                                    <td class="sev-high">Pending</t	d>
+                                </tr>
+								<tr>
+                                    <td><a href="https://www.cve.org/CVERecord?id=" target="_blank">CVE-2026-XXXX (In Progress)</a></td>
+                                    <td>SQL Injection</td>
+                                    <td>Pending</td>
+                                    <td class="sev-critical">Pending</t	d>
+                                </tr>
+								<tr>
+                                    <td><a href="https://www.cve.org/CVERecord?id=" target="_blank">CVE-2026-XXXX (In Progress)</a></td>
+                                    <td>Reflected XSS</td>
+                                    <td>Pending</td>
+                                    <td class="sev-high">Pending</t	d>
+                                </tr>
+								<tr>
+                                    <td><a href="https://www.cve.org/CVERecord?id=" target="_blank">CVE-2026-XXXX (In Progress)</a></td>
+                                    <td>Authentication Bypass</td>
+                                    <td>Pending</td>
+                                    <td class="sev-high">Pending</t	d>
+                                </tr>
+								<tr>
+                                    <td><a href="https://www.cve.org/CVERecord?id=" target="_blank">CVE-2026-XXXX (In Progress)</a></td>
+                                    <td>Reflected XSS</td>
+                                    <td>Pending</td>
+                                    <td class="sev-high">Pending</t	d>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div class="center-container">
+                        <a href="https://github.com/feritozner/My_CVEs" target="_blank" class="flat-github-btn">
+                            <i class="fab fa-github"></i> VIEW EXPLOIT POC REPOSITORY
+                        </a>
+                    </div>
+                </div>
 
-    <main class="panel">
-        <h2>Vulnerability Research</h2>
-        <div class="table-wrapper">
-            <table>
-                <thead>
-                    <tr>
-                        <th>CVE ID</th>
-                        <th>Vulnerability</th>
-                        <th>CVSS</th>
-                        <th>Severity</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td><a href="https://www.cve.org/CVERecord?id=CVE-2025-10161" style="color:var(--accent); text-decoration:none; font-weight: bold;">CVE-2025-10161</a></td>
-                        <td>Authentication Bypass</td>
-                        <td style="font-family:monospace;">7.3</td>
-                        <td style="color:var(--high); font-weight: bold;">HIGH</td>
-                    </tr>
-                    <tr>
-                        <td><a href="https://www.cve.org/CVERecord?id=CVE-2025-14343" style="color:var(--accent); text-decoration:none; font-weight: bold;">CVE-2025-14343</a></td>
-                        <td>Reflected XSS (Cross-Site Scripting)</td>
-                        <td style="font-family:monospace;">7.6</td>
-                        <td style="color:var(--high); font-weight: bold;">HIGH</td>
-                    </tr>
-                    <tr>
-                        <td><a href="https://www.cve.org/CVERecord?id=CVE-2026-2347" style="color:var(--accent); text-decoration:none; font-weight: bold;">CVE-2026-2347</a></td>
-                        <td>Account Takeover</td>
-                        <td style="font-family:monospace;">Pending</td>
-                        <td style="color:var(--high); font-weight: bold;">Pending</td>
-                    </tr>
-                    <tr>
-                        <td><a href="https://www.cve.org/CVERecord?id=CVE-2026-3953" style="color:var(--accent); text-decoration:none; font-weight: bold;">CVE-2026-3953</a></td>
-                        <td>Reflected XSS (Cross-Site Scripting)</td>
-                        <td style="font-family:monospace;">Pending</td>
-                        <td style="color:var(--high); font-weight: bold;">Pending</td>
-                    </tr>
-                </tbody>
-            </table>
-        </div>
+                <div class="box">
+                    <h3>CERTIFICATIONS</h3>
+                    <div class="cert-list">
+                        <div class="cert-row">
+                            <div class="cert-info">
+                                <strong>Certified Web Security Expert (CWSE)</strong> - <small>Hackviser</small>
+                            </div>
+                            <a href="https://hackviser.com/verify?id=HV-CWSE-C780LJXK" class="verify-btn">Verify Credential</a>
+                        </div>
+                        <div class="cert-row">
+                            <div class="cert-info">
+                                <strong>Certified Associate Penetration Tester (CAPT)</strong> - <small>Hackviser</small>
+                            </div>
+                            <a href="https://hackviser.com/verify?id=HV-CAPT-BC5K98WA" class="verify-btn">Verify Credential</a>
+                        </div>
+                    </div>
+                </div>
+            </section>
 
-        <a href="https://github.com/feritozner/My_CVEs" class="archive-link">
-            <i class="fab fa-github"></i>
-            VIEW FULL POC REPOSITORY
-        </a>
+            <aside class="right-col">
+                <div class="box">
+                    <h3>EXPERIENCE</h3>
+                    <div class="timeline">
+                        <div class="exp-item">
+                            <span class="rank-tag">Part-time</span>
+                            <strong>Privia Security A.Ş</strong>
+                            <p>Associate Cyber Security Specialist<br><small>October 2024 - July 2025</small></p>
+                        </div>
+                        <div class="exp-item">
+                            <span class="rank-tag">Part-time</span>
+                            <strong>Privia Security A.Ş</strong>
+                            <p>Cyber Security Intern<br><small>June 2024 - October 2024</small></p>
+                        </div>
+                        <div class="exp-item">
+                            <span class="rank-tag">Voluntarily</span>
+                            <strong>DUSIBER Community</strong>
+                            <p>Board Member<br><small>March 2024 - January 2025</small></p>
+                        </div>
+                    </div>
+                </div>
 
-        <h2>Certifications</h2>
-        <div class="cert-item">
-            <div class="cert-info">
-                <b>Certified Web Security Expert (CWSE)</b>
-                <span>Hackviser</span>
-            </div>
-            <a href="https://hackviser.com/verify?id=HV-CWSE-C780LJXK" class="verify-btn">VERIFY ACCESS</a>
+                <div class="box">
+                    <h3>EDUCATION</h3>
+                    <div class="edu-list">
+                        <div class="edu-item">
+                            <strong>Computer Engineering</strong>
+                            <p>Faculty of Engineering<br><small>Duzce University, 2022-2027</small></p>
+                        </div>
+                    </div>
+                </div>
+            </aside>
+
         </div>
-        <div class="cert-item">
-            <div class="cert-info">
-                <b>Certified Associate Penetration Tester (CAPT)</b>
-                <span>Hackviser</span>
-            </div>
-            <a href="https://hackviser.com/verify?id=HV-CAPT-BC5K98WA" class="verify-btn">VERIFY ACCESS</a>
-        </div>
-    </main>
+        
+        <footer>
+            <small>Ferit Portfolio | Last Updated: March 2026</small>
+        </footer>
+    </div>
 
 </body>
 </html>
