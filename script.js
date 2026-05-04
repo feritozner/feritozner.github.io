@@ -83,13 +83,12 @@ window.loadPage = async function(pageName, event) {
         } else {
             contentDiv.innerHTML = `
                 <div class="box" style="padding: 40px; text-align: center; min-height: 400px; display: flex; align-items: center; justify-content: center; flex-direction: column;">
-                    <h2 style="margin-bottom: 10px; color: var(--sev-crit);">SAYFA BULUNAMADI (404)</h2>
-                    <p style="color: var(--text-muted);">pages/${pageName}.html dosyası bulunamadı. Klasör yolunu kontrol et.</p>
+                    <h2 style="margin-bottom: 10px; color: var(--sev-crit);">Page Not Found (404)</h2>
                 </div>
             `;
         }
     } catch (error) {
-        contentDiv.innerHTML = '<p style="text-align:center; color:red; padding: 20px;">CORS Hatası: Lütfen VS Code üzerinden Live Server kullanarak aç.</p>';
+        contentDiv.innerHTML = '<p style="text-align:center; color:red; padding: 20px;">CORS Error: Please open with Live Server from VS Code.</p>';
     }
 };
 
@@ -98,11 +97,10 @@ window.updateProfilePic = function(theme) {
     const profilePic = document.getElementById('profile-pic');
     if (!profilePic) return; 
     
-    // Resimleri artık assets klasöründen alıyoruz
     if (theme === 'vice-city') {
         profilePic.src = 'assets/vc_pp.png';
     } else {
-        profilePic.src = 'assets/pp.jpg'; // profile.jpg yerine pp.jpg yaptın
+        profilePic.src = 'assets/pp.jpg';
     }
 };
 
