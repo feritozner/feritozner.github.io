@@ -1,298 +1,43 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-theme="light">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<meta name="description" content="Ferit Özner | Cybersecurity Researcher specializing in Web Application Security, Penetration Testing, and Vulnerability Analysis.">
+    <meta name="description" content="Ferit Özner | Cybersecurity Researcher specializing in Web Application Security, Penetration Testing, and Vulnerability Analysis.">
     <title>Ferit Özner</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
-    <style>
-        /* General Style */
-        body {
-            background-color: #f4f4f4;
-            font-family: Arial, Helvetica, sans-serif;
-            color: #333;
-            padding: 10px;
-            margin: 0;
-        }
-
-        .main-frame {
-            background-color: #fff;
-            max-width: 1200px;
-            margin: 10px auto;
-            border: 1px solid #999;
-            padding: 15px;
-        }
-
-        .grid-container {
-            display: grid;
-            grid-template-columns: 240px 1fr 280px;
-            gap: 15px;
-        }
-
-        @media (max-width: 1000px) {
-            .grid-container { grid-template-columns: 1fr; }
-        }
-
-        .box {
-            border: 1px solid #ccc;
-            margin-bottom: 15px;
-        }
-
-        h3 {
-            background-color: #555;
-            color: #fff;
-            padding: 5px 10px;
-            margin: 0;
-            font-size: 13px;
-            letter-spacing: 1px;
-            text-transform: uppercase;
-        }
-
-        .profile-card {
-            text-align: center;
-            padding-top: 20px;
-        }
-
-        .avatar-container {
-            width: 150px;
-            height: 150px;
-            margin: 0 auto 15px;
-            border: 4px solid #333; 
-            padding: 5px;
-            background: #fff;
-            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-        }
-
-        .avatar { 
-            width: 100%; 
-            height: 100%; 
-            object-fit: cover;
-            border: 1px solid #ccc;
-        }
-
-        .name { margin: 10px 0 0; font-size: 18px; }
-        .title { font-size: 11px; color: #888; margin-bottom: 10px; text-transform: uppercase; }
-
-        .contact-info {
-            padding: 10px;
-            font-size: 11px;
-            border-top: 1px dashed #eee;
-            color: #555;
-            text-align: left;
-        }
-        .contact-info p { margin: 5px 0; display: flex; align-items: center; gap: 8px; }
-
-        .social-buttons { display: flex; flex-direction: column; padding: 10px; }
-        .social-btn {
-            text-decoration: none; color: #333; background: #fff; border: 1px solid #bbb;
-            padding: 7px; margin-bottom: 5px; font-size: 12px; display: flex; align-items: center; gap: 8px;
-            transition: 0.2s;
-        }
-        .social-btn:hover { background: #f0f0f0; border-color: #333; }
-
-        .table-wrapper { padding: 10px; overflow-x: auto; }
-        table { width: 100%; font-size: 12px; border-collapse: collapse; text-align: left; }
-        table a { color: #0044cc; font-weight: bold; }
-
-        .sev-critical, .sev-high { color: #cc0000; font-weight: bold; }
-        .sev-medium { color: #cc7a00; font-weight: bold; }
-        .sev-low { color: #2d862d; font-weight: bold; }
-
-        .center-container { display: flex; justify-content: center; padding: 15px; }
-        .flat-github-btn {
-            text-decoration: none; color: #fff; background-color: #333;
-            padding: 10px 20px; font-size: 11px; font-weight: bold; border: 1px solid #000;
-        }
-        .flat-github-btn:hover { background-color: #555; }
-
-        .cert-list { padding: 10px; }
-        .cert-row {
-            display: flex; justify-content: space-between; align-items: center;
-            border-bottom: 1px dashed #ccc; padding: 8px 0;
-        }
-        .cert-row:last-child { border-bottom: none; }
-        .cert-info { font-size: 13px; }
-        .verify-btn {
-            text-decoration: none; background: #eee; color: #333; border: 1px solid #999;
-            padding: 3px 8px; font-size: 10px;
-        }
-
-        .timeline, .edu-list { padding: 10px; }
-        .exp-item, .edu-item { border-left: 2px solid #555; padding-left: 10px; margin-bottom: 15px; }
-        .rank-tag { font-size: 10px; color: #777; font-style: italic; background: #f9f9f9; padding: 1px 4px; border: 1px solid #ddd; }
-        .exp-item strong, .edu-item strong { display: block; font-size: 14px; margin-top: 4px; }
-        .exp-item p, .edu-item p { margin: 2px 0; font-size: 12px; }
-
-        footer { text-align: center; margin-top: 15px; color: #bbb; border-top: 1px solid #eee; padding: 10px; }
-    </style>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
     <div class="main-frame">
-        <div class="grid-container">
-            
-            <aside class="left-col">
-                <div class="box profile-card">
-                    <div class="avatar-container">
-                        <img src="profile.jpg" alt="Ferit Özner" class="avatar">
-                    </div>
-                    <h2 class="name">Ferit Özner</h2>
-                    <p class="title">Cyber Security Researcher</p>
-                    
-                    <div class="contact-info">
-                        <p><i class="fas fa-envelope"></i> feritozner@gmail.com</p>
-                        <p><i class="fas fa-location-dot"></i> Istanbul, Turkey</p>
-                    </div>
-                </div>
+        <!-- Upper Menu and Theme Toggle Buttons -->
+        <header class="top-header">
+            <nav class="nav-menu">
+                <button class="hamburger" id="hamburger-btn" aria-label="Menu">
+                    <i class="fas fa-bars"></i>
+                </button>
+                <ul id="nav-links">
+                    <li><a href="#" class="active" onclick="loadPage('portfolio', event)">Portfolio</a></li>
+                    <li><a href="#" onclick="loadPage('methodology', event)">Web Pentest Methodology</a></li>
+                    <li><a href="#" onclick="loadPage('projects', event)">Projects</a></li>
+                    <li><a href="#" onclick="loadPage('dorker', event)">Google Dorker</a></li>
+                </ul>
+            </nav>
 
-                <div class="box">
-                    <h3>SOCIAL MEDIA</h3>
-                    <div class="social-buttons">
-                        <a href="https://github.com/feritozner" target="_blank" class="social-btn"><i class="fab fa-github"></i> GitHub</a>
-                        <a href="https://www.linkedin.com/in/ferit-ozner" target="_blank" class="social-btn"><i class="fab fa-linkedin"></i> LinkedIn</a>
-                        <a href="https://x.com/FeritOzner" target="_blank" class="social-btn"><i class="fa-brands fa-x-twitter"></i> Twitter</a>
-                        <a href="https://medium.com/@feritozner" target="_blank" class="social-btn"><i class="fab fa-medium"></i> Medium</a>
-                        <a href="https://www.instagram.com/feritozner" target="_blank" class="social-btn"><i class="fab fa-instagram"></i> Instagram</a>
-                    </div>
-                </div>
-            </aside>
+            <div class="theme-toggle-wrapper">
+                <button id="theme-toggle" class="theme-toggle-btn" aria-label="Toggle Theme">
+                    <i class="fas fa-moon"></i>
+                </button>
+                <button id="vc-theme-toggle" class="theme-toggle-btn vc-btn" aria-label="Vice City Theme">
+                    🌴 VC
+                </button>
+            </div>
+        </header>
 
-            <section class="mid-col">
-                <div class="box">
-                    <h3>MY CVE RECORDS</h3>
-                    <div class="table-wrapper">
-                        <table border="1" cellspacing="0" cellpadding="5">
-                            <thead>
-                                <tr bgcolor="#e0e0e0">
-                                    <th>ID</th>
-                                    <th>Vulnerability</th>
-                                    <th>CVSS</th>
-                                    <th>Severity</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td><a href="https://www.cve.org/CVERecord?id=CVE-2025-10161" target="_blank">CVE-2025-10161</a></td>
-                                    <td>Authentication Bypass</td>
-                                    <td>7.3</td>
-                                    <td class="sev-high">HIGH</td>
-                                </tr>
-                                <tr>
-                                    <td><a href="https://www.cve.org/CVERecord?id=CVE-2025-14343" target="_blank">CVE-2025-14343</a></td>
-                                    <td>Reflected XSS</td>
-                                    <td>7.6</td>
-                                    <td class="sev-high">HIGH</td>
-                                </tr>
-                                <tr>
-                                    <td><a href="https://www.cve.org/CVERecord?id=CVE-2026-2347" target="_blank">CVE-2026-2347</a></td>
-                                    <td>Account Takeover</td>
-                                    <td>Pending</td>
-                                    <td class="sev-critical">Pending</td>
-                                </tr>
-								<tr>
-                                    <td><a href="https://www.cve.org/CVERecord?id=CVE-2026-3953" target="_blank">CVE-2026-3953</a></td>
-                                    <td>Reflected XSS</td>
-                                    <td>Pending</td>
-                                    <td class="sev-high">Pending</td>
-                                </tr>
-								<tr>
-                                    <td><a href="https://www.cve.org/CVERecord?id=CVE-2026-5800" target="_blank">CVE-2026-5800 </a></td>
-                                    <td>Reflected XSS</td>
-                                    <td>Pending</td>
-                                    <td class="sev-medium">Pending</td>
-                                </tr>
-								<tr>
-                                    <td><a href="https://www.cve.org/CVERecord?id=CVE-2026-5955" target="_blank">CVE-2026-5955</a></td>
-                                    <td>SQL Injection</td>
-                                    <td>Pending</td>
-                                    <td class="sev-critical">Pending</td>
-                                </tr>
-								<tr>
-                                    <td><a href="https://www.cve.org/CVERecord?id=CVE-2026-5792" target="_blank">CVE-2026-5792</a></td>
-                                    <td>Authentication Bypass</td>
-                                    <td>Pending</td>
-                                    <td class="sev-high">Pending</td>
-                                </tr>
-								<tr>
-                                    <td><a href="https://www.cve.org/CVERecord?id=CVE-2026-5793" target="_blank">CVE-2026-5793</a></td>
-                                    <td>Reflected XSS</td>
-                                    <td>Pending</td>
-                                    <td class="sev-medium">Pending</td>
-                                </tr>
-								<tr>
-                                    <td><a href="https://www.cve.org/CVERecord?id=CVE-2026-6223" target="_blank">CVE-2026-6223</a></td>
-                                    <td>Account Takeover</td>
-                                    <td>Pending</td>
-                                    <td class="sev-high">Pending</td>
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>
-                    <div class="center-container">
-                        <a href="https://github.com/feritozner/My_CVEs" target="_blank" class="flat-github-btn">
-                            <i class="fab fa-github"></i> VIEW EXPLOIT POC REPOSITORY
-                        </a>
-                    </div>
-                </div>
-
-                <div class="box">
-                    <h3>CERTIFICATIONS</h3>
-                    <div class="cert-list">
-                        <div class="cert-row">
-                            <div class="cert-info">
-                                <strong>Certified Web Security Expert (CWSE)</strong> - <small>Hackviser</small>
-                            </div>
-                            <a href="https://hackviser.com/verify?id=HV-CWSE-C780LJXK" class="verify-btn">Verify Credential</a>
-                        </div>
-                        <div class="cert-row">
-                            <div class="cert-info">
-                                <strong>Certified Associate Penetration Tester (CAPT)</strong> - <small>Hackviser</small>
-                            </div>
-                            <a href="https://hackviser.com/verify?id=HV-CAPT-BC5K98WA" class="verify-btn">Verify Credential</a>
-                        </div>
-                    </div>
-                </div>
-            </section>
-
-            <aside class="right-col">
-                <div class="box">
-                    <h3>EXPERIENCE</h3>
-                    <div class="timeline">
-						<div class="exp-item">
-                            <span class="rank-tag">Intern</span>
-                            <strong>VENHANCER</strong>
-                            <p>Security & SQA Tester<br><small>April 2026 - Now</small></p>
-                        </div>
-                        <div class="exp-item">
-                            <span class="rank-tag">Part-time</span>
-                            <strong>Privia Security A.Ş</strong>
-                            <p>Associate Cyber Security Specialist<br><small>October 2024 - July 2025</small></p>
-                        </div>
-                        <div class="exp-item">
-                            <span class="rank-tag">Intern</span>
-                            <strong>Privia Security A.Ş</strong>
-                            <p>Cyber Security Intern<br><small>June 2024 - October 2024</small></p>
-                        </div>
-                        <div class="exp-item">
-                            <span class="rank-tag">Voluntarily</span>
-                            <strong>DUSIBER Community</strong>
-                            <p>Board Member<br><small>March 2024 - January 2025</small></p>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="box">
-                    <h3>EDUCATION</h3>
-                    <div class="edu-list">
-                        <div class="edu-item">
-                            <strong>Computer Engineering</strong>
-                            <p>Faculty of Engineering<br><small>Duzce University, 2022-2027</small></p>
-                        </div>
-                    </div>
-                </div>
-            </aside>
-
+        <!-- All html files will be loaded here -->
+        <div id="page-content">
+            <!-- Content will be loaded here by JavaScript -->
         </div>
         
         <footer>
@@ -300,5 +45,6 @@
         </footer>
     </div>
 
+    <script src="script.js"></script>
 </body>
 </html>

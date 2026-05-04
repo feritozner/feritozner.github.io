@@ -1,0 +1,61 @@
+<div class="box dorker-container" style="max-width: 800px; margin: 0 auto;">
+    <h3><i class="fas fa-search"></i> Google Dorker </h3>
+    <div class="tool-content">
+        
+        <fieldset>
+            <legend>Target Parameters</legend>
+            <div class="form-row">
+                <label>Keywords (use ,):</label>
+                <input type="text" id="keywords" placeholder="admin, login, db_password, name/surname">
+            </div>
+            <div class="form-row">
+                <label>Target Domain:</label>
+                <input type="text" id="targetDomain" placeholder="example.com">
+            </div>
+        </fieldset>
+
+        <fieldset>
+            <legend>Dork Parameters</legend>
+            <div class="dork-grid">
+                <div>
+                    <div class="dork-item"><input type="checkbox" id="chk-intext"> <label>INTEXT</label> <i class="fas fa-info-circle info-btn" onclick="showInfo('intext')"></i> <input type="text" id="val-intext"></div>
+                    <div class="dork-item"><input type="checkbox" id="chk-inurl"> <label>INURL</label> <i class="fas fa-info-circle info-btn" onclick="showInfo('inurl')"></i> <input type="text" id="val-inurl"></div>
+                    <div class="dork-item"><input type="checkbox" id="chk-intitle"> <label>INTITLE</label> <i class="fas fa-info-circle info-btn" onclick="showInfo('intitle')"></i> <input type="text" id="val-intitle"></div>
+                    <div class="dork-item"><input type="checkbox" id="chk-site"> <label>SITE</label> <i class="fas fa-info-circle info-btn" onclick="showInfo('site')"></i> <input type="text" id="val-site"></div>
+                    <div class="dork-item"><input type="checkbox" id="chk-numrange"> <label>NUMRANGE</label> <i class="fas fa-info-circle info-btn" onclick="showInfo('numrange')"></i> <input type="text" id="val-numrange" placeholder="10..50"></div>
+                    <div class="dork-item"><input type="checkbox" id="chk-after"> <label>AFTER</label> <i class="fas fa-info-circle info-btn" onclick="showInfo('after')"></i> <input type="text" id="val-after" placeholder="2024-01-01"></div>
+                    <div class="dork-item"><input type="checkbox" id="chk-cache"> <label>CACHE</label> <i class="fas fa-info-circle info-btn" onclick="showInfo('cache')"></i> <input type="text" id="val-cache"></div>
+                </div>
+                <div>
+                    <div class="dork-item"><input type="checkbox" id="chk-allintext"> <label>ALLINTEXT</label> <i class="fas fa-info-circle info-btn" onclick="showInfo('allintext')"></i> <input type="text" id="val-allintext"></div>
+                    <div class="dork-item"><input type="checkbox" id="chk-allinurl"> <label>ALLINURL</label> <i class="fas fa-info-circle info-btn" onclick="showInfo('allinurl')"></i> <input type="text" id="val-allinurl"></div>
+                    <div class="dork-item"><input type="checkbox" id="chk-allintitle"> <label>ALLINTITLE</label> <i class="fas fa-info-circle info-btn" onclick="showInfo('allintitle')"></i> <input type="text" id="val-allintitle"></div>
+                    <div class="dork-item"><input type="checkbox" id="chk-link"> <label>LINK</label> <i class="fas fa-info-circle info-btn" onclick="showInfo('link')"></i> <input type="text" id="val-link"></div>
+                    <div class="dork-item"><input type="checkbox" id="chk-before"> <label>BEFORE</label> <i class="fas fa-info-circle info-btn" onclick="showInfo('before')"></i> <input type="text" id="val-before" placeholder="2025-01-01"></div>
+                    <div class="dork-item"><input type="checkbox" id="chk-related"> <label>RELATED</label> <i class="fas fa-info-circle info-btn" onclick="showInfo('related')"></i> <input type="text" id="val-related"></div>
+                </div>
+            </div>
+        </fieldset>
+
+        <fieldset>
+            <legend>Extension Control</legend>
+            <div class="ext-controls">
+                <div class="ext-item"><input type="checkbox" class="ext-chk" value="pdf"> pdf</div>
+                <div class="ext-item"><input type="checkbox" class="ext-chk" value="doc"> doc</div>
+                <div class="ext-item"><input type="checkbox" class="ext-chk" value="xls"> xls</div>
+                <div class="ext-item"><input type="checkbox" class="ext-chk" value="txt"> txt</div>
+                <div class="ext-item"><input type="checkbox" class="ext-chk" value="conf"> conf</div>
+                <div class="ext-item"><input type="checkbox" class="ext-chk" value="log"> log</div>
+                <div class="ext-item"><input type="checkbox" class="ext-chk" value="env"> env</div>
+                <div class="ext-item"><input type="checkbox" class="ext-chk" value="sql"> sql</div>
+                <div class="ext-item" style="margin-left: 10px; border-left: 1px solid var(--border-color); padding-left: 10px;">
+                    <strong>Other:</strong> <input type="text" id="ext-other" style="width: 80px; margin-left: 5px;">
+                </div>
+            </div>
+        </fieldset>
+
+        <button onclick="executeDorkSearch()" class="flat-github-btn">
+            <i class="fas fa-terminal"></i> Execute_Dorker_Search
+        </button>
+    </div>
+</div>
