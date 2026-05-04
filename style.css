@@ -64,7 +64,7 @@
 }
 
 [data-theme="vice-city"] body {
-    background-image: url('assets/vc_bg.png'); 
+    background-image: url('assets/vc_bg.jpg'); 
     background-size: cover; 
     background-position: center; 
     background-attachment: fixed;

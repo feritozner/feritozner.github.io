@@ -98,7 +98,7 @@ window.updateProfilePic = function(theme) {
     if (!profilePic) return; 
     
     if (theme === 'vice-city') {
-        profilePic.src = 'assets/vc_pp.png';
+        profilePic.src = 'assets/vc_pp.jpg';
     } else {
         profilePic.src = 'assets/pp.jpg';
     }
